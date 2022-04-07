@@ -15,14 +15,14 @@ Pod::Spec.new do |s|
 
   s.subspec '__Store' do |ss|
     ss.source_files = 'SensorsAnalyticsSDK/Store/*.{h,m}'
-    ss.public_header_files = 'SensorsAnalyticsSDK/Store/SABaseStoreManager.h', 'SensorsAnalyticsSDK/Store/SAStorePlugin.h', 'SensorsAnalyticsSDK/Store/SAAESStorePlugin.h'
+    # ss.public_header_files = 'SensorsAnalyticsSDK/Store/SABaseStoreManager.h', 'SensorsAnalyticsSDK/Store/SAStorePlugin.h', 'SensorsAnalyticsSDK/Store/SAAESStorePlugin.h'
   end
 
   s.subspec 'Base' do |b|
     core_dir = "SensorsAnalyticsSDK/Core/"
     b.source_files = core_dir + "**/*.{h,m}"
     b.exclude_files = core_dir + "SAAlertController.h", core_dir + "SAAlertController.m"
-    b.public_header_files = core_dir + "SensorsAnalyticsSDK.h", core_dir + "SensorsAnalyticsSDK+Public.h", core_dir + "SAAppExtensionDataManager.h", core_dir + "SASecurityPolicy.h", core_dir + "SAConfigOptions.h", core_dir + "SAConstants.h", core_dir + "PropertyPlugin/SAPropertyPluginProtocol.h"
+    # b.public_header_files = core_dir + "SensorsAnalyticsSDK.h", core_dir + "SensorsAnalyticsSDK+Public.h", core_dir + "SAAppExtensionDataManager.h", core_dir + "SASecurityPolicy.h", core_dir + "SAConfigOptions.h", core_dir + "SAConstants.h", core_dir + "PropertyPlugin/SAPropertyPluginProtocol.h"
     b.ios.resource = 'SensorsAnalyticsSDK/SensorsAnalyticsSDK.bundle'
     b.ios.frameworks = 'CoreTelephony'
     b.dependency 'SensorsAnalyticsSDK/__Store'
@@ -34,10 +34,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Common' do |c|
     c.dependency 'SensorsAnalyticsSDK/Extension'
-    c.public_header_files = 'SensorsAnalyticsSDK/JSBridge/SensorsAnalyticsSDK+JavaScriptBridge.h'
+    # c.public_header_files = 'SensorsAnalyticsSDK/JSBridge/SensorsAnalyticsSDK+JavaScriptBridge.h'
     c.source_files = 'SensorsAnalyticsSDK/Core/SAAlertController.{h,m}', 'SensorsAnalyticsSDK/JSBridge/**/*.{h,m}'
     c.ios.source_files = 'SensorsAnalyticsSDK/RemoteConfig/**/*.{h,m}', 'SensorsAnalyticsSDK/ChannelMatch/**/*.{h,m}', 'SensorsAnalyticsSDK/Encrypt/**/*.{h,m}', 'SensorsAnalyticsSDK/Deeplink/**/*.{h,m}', 'SensorsAnalyticsSDK/DebugMode/**/*.{h,m}', 'SensorsAnalyticsSDK/Core/SAAlertController.h'
-    c.ios.public_header_files = 'SensorsAnalyticsSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,SensorsAnalyticsSDK}+*.h', 'SensorsAnalyticsSDK/Encrypt/SAEncryptProtocol.h', 'SensorsAnalyticsSDK/Encrypt/SASecretKey.h'
+    # c.ios.public_header_files = 'SensorsAnalyticsSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,SensorsAnalyticsSDK}+*.h', 'SensorsAnalyticsSDK/Encrypt/SAEncryptProtocol.h', 'SensorsAnalyticsSDK/Encrypt/SASecretKey.h'
   end
 
   s.subspec 'Core' do |c|
@@ -50,7 +50,7 @@ Pod::Spec.new do |s|
     f.ios.deployment_target = '8.0'
     f.dependency 'SensorsAnalyticsSDK/Core'
     f.source_files = "SensorsAnalyticsSDK/CAID/**/*.{h,m}"
-    f.private_header_files = 'SensorsAnalyticsSDK/CAID/**/*.h'
+    # f.private_header_files = 'SensorsAnalyticsSDK/CAID/**/*.h'
   end
 
   # 全埋点
@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
     g.ios.deployment_target = '8.0'
     g.dependency 'SensorsAnalyticsSDK/Common'
     g.source_files = "SensorsAnalyticsSDK/AutoTrack/**/*.{h,m}"
-    g.public_header_files = 'SensorsAnalyticsSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h', 'SensorsAnalyticsSDK/AutoTrack/SAConfigOptions+AutoTrack.h'
+    # g.public_header_files = 'SensorsAnalyticsSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h', 'SensorsAnalyticsSDK/AutoTrack/SAConfigOptions+AutoTrack.h'
     g.frameworks = 'UIKit'
   end
 
@@ -67,7 +67,7 @@ Pod::Spec.new do |s|
     f.ios.deployment_target = '8.0'
     f.dependency 'SensorsAnalyticsSDK/AutoTrack'
     f.source_files = "SensorsAnalyticsSDK/Visualized/**/*.{h,m}"
-    f.public_header_files = 'SensorsAnalyticsSDK/Visualized/SensorsAnalyticsSDK+Visualized.h', 'SensorsAnalyticsSDK/Visualized/SAConfigOptions+Visualized.h'
+    # f.public_header_files = 'SensorsAnalyticsSDK/Visualized/SensorsAnalyticsSDK+Visualized.h', 'SensorsAnalyticsSDK/Visualized/SAConfigOptions+Visualized.h'
   end
 
   # 开启 GPS 定位采集
@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
     f.frameworks = 'CoreLocation'
     f.dependency 'SensorsAnalyticsSDK/Core'
     f.source_files = "SensorsAnalyticsSDK/Location/**/*.{h,m}"
-    f.public_header_files = 'SensorsAnalyticsSDK/Location/SensorsAnalyticsSDK+Location.h'
+    # f.public_header_files = 'SensorsAnalyticsSDK/Location/SensorsAnalyticsSDK+Location.h'
   end
 
   # 开启设备方向采集
@@ -84,7 +84,7 @@ Pod::Spec.new do |s|
     f.ios.deployment_target = '8.0'
     f.dependency 'SensorsAnalyticsSDK/Core'
     f.source_files = 'SensorsAnalyticsSDK/DeviceOrientation/**/*.{h,m}'
-    f.public_header_files = 'SensorsAnalyticsSDK/DeviceOrientation/SensorsAnalyticsSDK+DeviceOrientation.h'
+    # f.public_header_files = 'SensorsAnalyticsSDK/DeviceOrientation/SensorsAnalyticsSDK+DeviceOrientation.h'
     f.frameworks = 'CoreMotion'
   end
 
@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
     f.ios.deployment_target = '8.0'
     f.dependency 'SensorsAnalyticsSDK/Core'
     f.source_files = "SensorsAnalyticsSDK/AppPush/**/*.{h,m}"
-    f.public_header_files = 'SensorsAnalyticsSDK/AppPush/SAConfigOptions+AppPush.h'
+    # f.public_header_files = 'SensorsAnalyticsSDK/AppPush/SAConfigOptions+AppPush.h'
   end
 
   # 使用崩溃事件采集
@@ -101,7 +101,7 @@ Pod::Spec.new do |s|
     e.ios.deployment_target = '8.0'
     e.dependency 'SensorsAnalyticsSDK/Common'
     e.source_files  =  "SensorsAnalyticsSDK/Exception/**/*.{h,m}"
-    e.public_header_files = 'SensorsAnalyticsSDK/Exception/SAConfigOptions+Exception.h'
+    # e.public_header_files = 'SensorsAnalyticsSDK/Exception/SAConfigOptions+Exception.h'
   end
 
   # 基于 UA，使用 UIWebView 或者 WKWebView 进行打通
@@ -109,7 +109,7 @@ Pod::Spec.new do |s|
     w.ios.deployment_target = '8.0'
     w.dependency 'SensorsAnalyticsSDK/Core'
     w.source_files  =  "SensorsAnalyticsSDK/WebView/**/*.{h,m}"
-    w.public_header_files = 'SensorsAnalyticsSDK/WebView/SensorsAnalyticsSDK+WebView.h'
+    # w.public_header_files = 'SensorsAnalyticsSDK/WebView/SensorsAnalyticsSDK+WebView.h'
   end
 
   # 基于 UA，使用 WKWebView 进行打通
@@ -117,7 +117,7 @@ Pod::Spec.new do |s|
     w.ios.deployment_target = '8.0'
     w.dependency 'SensorsAnalyticsSDK/Core'
     w.source_files  =  "SensorsAnalyticsSDK/WKWebView/**/*.{h,m}"
-    w.public_header_files = 'SensorsAnalyticsSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h'
+    # w.public_header_files = 'SensorsAnalyticsSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h'
   end
 
 end
